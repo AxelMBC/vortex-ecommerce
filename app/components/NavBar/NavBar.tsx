@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const menuItems = [
   { name: "Catálogo", href: "/catalogo" },
@@ -17,12 +18,20 @@ const Navbar = () => {
   return (
     <nav className="relative bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-gray-900">
+        {/* Logo + Nombre */}
+        <Link href="/" className="flex items-center text-2xl font-bold text-gray-900">
+          {/* Imagen del logo */}
+          <Image 
+            src="/vx.png" 
+            alt="Vortex Logo" 
+            width={40} 
+            height={40} 
+            className="mr-2"
+          />
           Vortex
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Menú Desktop */}
         <ul className="hidden md:flex space-x-6">
           {menuItems.map((item, index) => (
             <motion.li
@@ -42,7 +51,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Botón Menú Móvil */}
         <button
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -51,7 +60,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menú Móvil */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
