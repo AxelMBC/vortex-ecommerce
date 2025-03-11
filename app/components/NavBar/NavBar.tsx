@@ -9,6 +9,7 @@ const menuItems = [
   { name: "Catálogo", href: "/catalogo" },
   { name: "Mercado", href: "/mercado" },
   { name: "Vende Fácil", href: "/vende-facil" },
+  { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
   { name: "Acerca de", href: "/acerca-de" },
 ];
 

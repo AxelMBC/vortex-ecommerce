@@ -1,7 +1,9 @@
-import "./preguntas-frecuentes.css"
+import FAQSection from "../components/FAQ";
 
-const PreguntasFrecuentes = () => {
-    return (<p>Hola Mundo</p>)
+export default function FAQpage() {
+  return (
+    <main>
+      <FAQSection />
+    </main>
+  );
 }
-
-export default PreguntasFrecuentes
