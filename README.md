@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Libraries
+
+Install following lib
+
+npm install talkjs @talkjs/react
+# or
+yarn add talkjs @talkjs/react
+
+
 First, run the development server:
 
 ```bash
