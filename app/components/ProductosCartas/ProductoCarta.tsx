@@ -1,8 +1,17 @@
+"use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { productoType } from "../../types/productoType";
+import { useRouter } from "next/navigation";
 
-const ProductoCarta = ({ producto }: { producto: productoType }) => {
+const ProductoCarta = ({
+  producto,
+  tipo,
+}: {
+  producto: productoType;
+  tipo: string;
+}) => {
+  const router = useRouter();
   // Animation variants for product cards
   const productVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -18,6 +27,7 @@ const ProductoCarta = ({ producto }: { producto: productoType }) => {
   };
   return (
     <motion.div
+      onClick={() => router.push(`${tipo}/${producto.id.toString()}`)}
       custom={producto.id}
       initial="hidden"
       animate="visible"

@@ -1,5 +1,8 @@
-const tecladoIndividual = ()=> {
-    return <p>Teclado individual</p>
-}
-
-export default tecladoIndividual
+export default async function Page({
+    params,
+  }: {
+    params: Promise<{ pId: string }>
+  }) {
+    const { pId } = await params
+    return <div>My Post: {pId}</div>
+  }
