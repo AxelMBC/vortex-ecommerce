@@ -29,7 +29,7 @@ export default function TecladosPagina() {
   // Animation variants for product cards
   const productVariants = {
     hidden: { opacity: 0, x: -50 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       x: 0,
       transition: {
@@ -82,8 +82,12 @@ export default function TecladosPagina() {
               <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {product.name}
               </h3>
-              <p className="text-gray-600 text-sm mb-2">{product.description}</p>
-              <p className="text-lg font-medium text-gray-900">{product.price}</p>
+              <p className="text-gray-600 text-sm mb-2">
+                {product.description}
+              </p>
+              <p className="text-lg font-medium text-gray-900">
+                {product.price}
+              </p>
             </div>
           </motion.div>
         ))}
