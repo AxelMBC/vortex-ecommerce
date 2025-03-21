@@ -1,9 +1,9 @@
-import AboutSection from "../components/AboutSection"
+import AcercaDe from "../components/AcercaDe"
 
 export default function AboutPage() {
   return (
     <main>
-      <AboutSection />
+      <AcercaDe />
     </main>
   );
 }
