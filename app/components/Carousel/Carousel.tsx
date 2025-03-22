@@ -23,7 +23,7 @@ export default function Carousel() {
   const goToSlide = (index:number) => setActive(index);
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto" style={{paddingBottom: "40px"}}>
 
       <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-sm">
         {items.map((item, index) => (
