@@ -1,20 +1,18 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaStar } from "react-icons/fa"; // Using react-icons for star icons
+import { FaStar } from "react-icons/fa"; 
 
 export default function PageRating() {
-  const [rating, setRating] = useState(0); // Current rating (0 to 5)
-  const [hover, setHover] = useState(0); // Track hover state for stars
-  const [submitted, setSubmitted] = useState(false); // Track if rating is submitted
+  const [rating, setRating] = useState(0); 
+  const [hover, setHover] = useState(0); 
+  const [submitted, setSubmitted] = useState(false); 
 
-  // Animation variants for the container
   const containerVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  // Handle rating submission
   const handleSubmit = () => {
     if (rating > 0) {
       setSubmitted(true);
@@ -29,12 +27,10 @@ export default function PageRating() {
       className="bg-gray-800 text-white p-4 rounded-lg shadow-lg max-w-sm mx-auto"
       style={{marginTop: "120px"}}
     >
-      {/* Title */}
       <h3 className="text-lg font-medium text-center mb-2">
         ¿De cuánta utilidad te ha parecido este contenido?
       </h3>
 
-      {/* Stars */}
       <div className="flex justify-center mb-3">
         {[1, 2, 3, 4, 5].map((star) => (
           <motion.button
@@ -56,7 +52,6 @@ export default function PageRating() {
         ))}
       </div>
 
-      {/* Prompt or Confirmation */}
       <p className="text-center text-sm text-gray-300">
         {submitted ? (
           "¡Gracias por tu valoración!"
@@ -75,7 +70,6 @@ export default function PageRating() {
         )}
       </p>
 
-      {/* Footer Note */}
       {!submitted && (
         <p className="text-center text-xs text-gray-400 mt-2">
           Hasta ahora, no hay votos. ¡Sé el primero en puntuar este contenido!
