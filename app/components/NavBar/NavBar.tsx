@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Catálogo", href: "/catalogo" },
+  { name: "Categorias", href: "/categorias" },
   { name: "Mercado", href: "/mercado" },
   { name: "Vende Fácil", href: "/vende-facil" },
   { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },

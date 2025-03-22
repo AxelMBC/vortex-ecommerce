@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const AboutSection = () => {
+const AcercaDe = () => {
   return (
     <section className="container mx-auto px-6 py-12">
       {/* Título principal */}
@@ -117,4 +117,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default AcercaDe;
