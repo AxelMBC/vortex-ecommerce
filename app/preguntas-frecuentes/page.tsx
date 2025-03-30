@@ -1,4 +1,4 @@
-import FAQSection from "../components/FAQ";
+import FAQSection from "./PreguntasFrecuentesComponente";
 
 export default function FAQpage() {
   return (

@@ -1,4 +1,4 @@
-import AcercaDe from "../components/AcercaDe"
+import AcercaDe from "./AcercaDe"
 
 export default function AboutPage() {
   return (

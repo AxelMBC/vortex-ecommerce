@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { tecladosLista } from "./tecladosLista";
-import ProductoCarta from "../../components/ProductosCartas";
+import { tecladosLista } from "../tecladosLista";
+import ProductoCarta from "@/app/components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
 import { productosTeclados } from "@/app/carouselOpciones/categoriasCarousel";
 
-export default function TecladosPagina() {
+const TecladosComponente = () => {
   return (
     <section className="w-full max-w-5xl mx-auto px-6 py-12">
       <motion.h2
@@ -30,4 +30,5 @@ export default function TecladosPagina() {
       </div>
     </section>
   );
-}
+};
+export default TecladosComponente;

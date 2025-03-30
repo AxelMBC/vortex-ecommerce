@@ -1,32 +1,34 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import pCImage from "../../../public/landing-carousel/PC.jpg";
-import headphonesImage from "../../../public/landing-carousel/Headphones.jpg";
-import keyboardImage from "../../../public/landing-carousel/Keyboard.jpg";
+import { StaticImageData } from "next/image";
 
-export default function Carousel() {
+interface listaProductosType {
+  img: StaticImageData;
+  alt: string;
+  caption: string;
+}
+
+export default function Carousel({
+  listaProductos,
+}: {
+  listaProductos: listaProductosType[];
+}) {
   const [active, setActive] = useState(0);
-  const items = [
-    { img: pCImage, alt: "Minimal Slide 1", caption: "Timeless Elegance" },
-    { img: headphonesImage, alt: "Minimal Slide 2", caption: "Simple Beauty" },
-    { img: keyboardImage, alt: "Minimal Slide 3", caption: "Pure Design" },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActive((prev) => (prev + 1) % items.length);
+      setActive((prev) => (prev + 1) % listaProductos.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [items.length]);
+  }, [listaProductos.length]);
 
-  const goToSlide = (index:number) => setActive(index);
+  const goToSlide = (index: number) => setActive(index);
 
   return (
-    <div className="w-full max-w-3xl mx-auto" style={{paddingBottom: "40px"}}>
-
+    <div className="w-full max-w-3xl mx-auto" style={{ paddingBottom: "40px" }}>
       <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-sm">
-        {items.map((item, index) => (
+        {listaProductos.map((item, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
@@ -54,7 +56,7 @@ export default function Carousel() {
       </div>
 
       <div className="flex justify-center mt-4 space-x-2">
-        {items.map((_, index) => (
+        {listaProductos.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}

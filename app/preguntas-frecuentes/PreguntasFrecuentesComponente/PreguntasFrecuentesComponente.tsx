@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const FAQSection = () => {
+const PreguntasFrecuentesComponente = () => {
   return (
     <section className="container mx-auto px-6 py-12">
       {/* Título principal */}
@@ -129,4 +129,4 @@ const FAQSection = () => {
   );
 };
 
-export default FAQSection;
+export default PreguntasFrecuentesComponente;
