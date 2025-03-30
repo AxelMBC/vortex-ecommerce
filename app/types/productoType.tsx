@@ -6,4 +6,6 @@ export interface productoType  {
     descripcion: string,
     precio: number,
     imagen: StaticImageData,
+    especificaciones: string[],
+    videoYT?: string;
 }
