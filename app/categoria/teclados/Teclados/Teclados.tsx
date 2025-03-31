@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { tecladosLista } from "../tecladosLista";
 import ProductoCarta from "@/app/components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
-import { productosTeclados } from "@/app/carouselOpciones/categoriasCarousel";
+import { productosTeclados } from "@/app/db/productos";
 
-const TecladosComponente = () => {
+const Teclados = () => {
   return (
     <section className="w-full max-w-5xl mx-auto px-6 py-12">
       <motion.h2
@@ -31,4 +31,4 @@ const TecladosComponente = () => {
     </section>
   );
 };
-export default TecladosComponente;
+export default Teclados;

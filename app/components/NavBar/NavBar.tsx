@@ -9,7 +9,7 @@ const menuItems = [
   { name: "Categorias", href: "/categorias" },
   { name: "Mercado", href: "/mercado" },
   { name: "Vende Fácil", href: "/vende-facil" },
-  { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
+  // { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
   { name: "Acerca de", href: "/acerca-de" },
 ];
 
@@ -19,20 +19,20 @@ const Navbar = () => {
   return (
     <nav className="relative bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo + Nombre */}
-        <Link href="/" className="flex items-center text-2xl font-bold text-gray-900">
-          {/* Imagen del logo */}
-          <Image 
-            src="/vx.png" 
-            alt="Vortex Logo" 
-            width={40} 
-            height={40} 
+        <Link
+          href="/"
+          className="flex items-center text-2xl font-bold text-gray-900"
+        >
+          <Image
+            src="/vx.png"
+            alt="Vortex Logo"
+            width={40}
+            height={40}
             className="mr-2"
           />
           Vortex
         </Link>
 
-        {/* Menú Desktop */}
         <ul className="hidden md:flex space-x-6">
           {menuItems.map((item, index) => (
             <motion.li
@@ -46,13 +46,12 @@ const Navbar = () => {
               >
                 {item.name}
               </Link>
-              {/* Hover Underline Animation */}
+
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </motion.li>
           ))}
         </ul>
 
-        {/* Botón Menú Móvil */}
         <button
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -61,7 +60,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Menú Móvil */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}

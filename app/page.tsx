@@ -1,6 +1,6 @@
 import Carousel from "./components/Carousel";
 import Rating from "./components/Rating"
-import { productosPrincipal } from "@/app/carouselOpciones/landingCarousel";
+import { productosPrincipal } from "@/app/db/productos";
 
 export default function Home() {
   return (

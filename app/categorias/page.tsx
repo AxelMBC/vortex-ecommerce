@@ -1,4 +1,4 @@
-import CategoriasComponente from "./categoriasComponente";
+import CategoriasComponente from "./Categorias";
 import Rating from "../components/Rating";
 
 const CategoriasPagina = () => {

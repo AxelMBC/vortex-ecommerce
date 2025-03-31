@@ -1,9 +1,9 @@
-import FAQSection from "./PreguntasFrecuentesComponente";
+import PreguntasFrecuentes from "./PreguntasFrecuentes";
 
-export default function FAQpage() {
+export default function PreguntasFrecuentesPagina() {
   return (
     <main>
-      <FAQSection />
+      <PreguntasFrecuentes />
     </main>
   );
 }
