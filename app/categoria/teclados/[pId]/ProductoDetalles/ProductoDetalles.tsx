@@ -1,9 +1,8 @@
-// app/products/[pId]/ProductDetails.tsx
 "use client";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { productoType } from "@/app/types/productoType"; // Ajusta la ruta según tu estructura
+import { productoType } from "@/app/types/productoType";
 
 export default function ProductDetails({ product }: { product: productoType }) {
   const router = useRouter();
@@ -91,7 +90,7 @@ export default function ProductDetails({ product }: { product: productoType }) {
         </div>
 
         <div className="mt-12 text-center md:text-left">
-          <button className="px-6 py-3 bg-indigo-600 text-white text-base font-medium rounded-md hover:bg-indigo-700 transition-colors duration-200">
+          <button className="px-6 py-3 bg-indigo-600 text-white text-base font-medium rounded-md hover:bg-indigo-700 transition-colors duration-200 cursror-pointer">
             Agregar al Carrito
           </button>
         </div>
