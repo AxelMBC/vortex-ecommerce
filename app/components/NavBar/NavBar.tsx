@@ -4,12 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const menuItems = [
   { name: "Categorias", href: "/categorias" },
   { name: "Mercado", href: "/mercado" },
-  { name: "Vende Fácil", href: "/vende-facil" },
-  // { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
   { name: "Acerca de", href: "/acerca-de" },
 ];
 
@@ -50,6 +50,9 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </motion.li>
           ))}
+          <motion.li whileHover={{ y: -3 }} className="relative group">
+            <FontAwesomeIcon icon={faCartShopping} color="black" className="cursor-pointer"/>
+          </motion.li>
         </ul>
 
         <button
