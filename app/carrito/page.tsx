@@ -1,7 +1,7 @@
 "use client";
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/store";
-import Carrito from "./Carrito/Carrito";
+// import { useSelector } from "react-redux";
+// import { RootState } from "@/lib/store";
+// import Carrito from "./Carrito/Carrito";
 import CarritoDebug from "../components/CarritoDebug";
 
 const CarritoPage = () => {
