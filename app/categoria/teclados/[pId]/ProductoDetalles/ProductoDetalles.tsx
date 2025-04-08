@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { productoType } from "@/app/types/productoType";
+import { useAppDispatch } from "@/lib/hooks";
+import { addProductToCart } from "@/lib/features/cart/cartSlice";
 
 export default function ProductDetails({ product }: { product: productoType }) {
   const router = useRouter();
@@ -11,8 +13,13 @@ export default function ProductDetails({ product }: { product: productoType }) {
       product.videoYT.split("/").pop()
     : null;
 
+  const dispatch = useAppDispatch();
   const handleBackClick = () => {
     router.push("/categoria/teclados");
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addProductToCart(product));
   };
 
   return (
@@ -90,7 +97,10 @@ export default function ProductDetails({ product }: { product: productoType }) {
         </div>
 
         <div className="mt-12 text-center md:text-left">
-          <button className="px-6 py-3 bg-indigo-600 text-white text-base font-medium rounded-md hover:bg-indigo-700 transition-colors duration-200 cursror-pointer">
+          <button
+            onClick={handleAddToCart}
+            className="px-6 py-3 bg-indigo-600 text-white text-base font-medium rounded-md hover:bg-indigo-700 transition-colors duration-200 cursor-pointer"
+          >
             Agregar al Carrito
           </button>
         </div>

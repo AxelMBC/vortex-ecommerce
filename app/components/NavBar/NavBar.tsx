@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 const menuItems = [
   { name: "Categorias", href: "/categorias" },
@@ -15,6 +16,7 @@ const menuItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <nav className="relative bg-white shadow-md">
@@ -50,8 +52,16 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </motion.li>
           ))}
-          <motion.li whileHover={{ y: -3 }} className="relative group">
-            <FontAwesomeIcon icon={faCartShopping} color="black" className="cursor-pointer"/>
+          <motion.li
+            whileHover={{ y: -3 }}
+            className="relative group"
+            onClick={() => router.push("/carrito")}
+          >
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              color="black"
+              className="cursor-pointer"
+            />
           </motion.li>
         </ul>
 
