@@ -5,7 +5,7 @@ import Navbar from "./components/NavBar"
 import "./globals.css"
 import Redes from "./components/Redes/Redes"
 import Chat from "./components/Chat/Chat"
-import StoreProvider from './StoreProvider'  // Importa el StoreProvider
+import StoreProvider from './StoreProvider'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Aquí envolvemos todo con el StoreProvider */}
         <StoreProvider>
           <Navbar />
           <Chat />

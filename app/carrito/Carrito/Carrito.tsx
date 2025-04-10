@@ -1,78 +1,71 @@
-// app/carrito/Carrito/Carrito.tsx
 "use client";
-import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store"; // Ajusta la ruta según tu proyecto
+import { productoType } from "@/app/types/productoType"; // Ajusta la ruta según tu proyecto
 import Image from "next/image";
-import Link from "next/link";
+import { useAppDispatch } from "@/lib/hooks"; // Hook para despachar
+import { clearCart } from "@/lib/features/cart/cartSlice"; // Acción para limpiar
 
-interface Producto {
-  id: string;
-  titulo: string;
-  precio: number;
-  imagen: string;
-}
+const Carrito = () => {
+  const items = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch(); // Hook para despachar acciones
 
-interface Props {
-  productos: Producto[];
-}
+  // Añadimos un console.log para verificar el estado y el despacho
+  const handleClearCart = () => {
+    console.log("Antes de limpiar - Items en el carrito:", items);
+    dispatch(clearCart());
+    console.log("Después de despachar clearCart");
+  };
 
-const Carrito = ({ productos }: Props) => {
-  console.log("Productos en el carrito:", productos);
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-900 text-white px-4 py-8"
-    >
-      <div className="max-w-4xl mx-auto">
-        {/* Encabezado */}
-        <header className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold">🛒 Mi Carrito</h1>
-          <Link href="/" className="text-blue-400 hover:underline">
-            Volver a la tienda
-          </Link>
-        </header>
-
-        {/* Contenido del carrito */}
-        {Array.isArray(productos) && productos.length === 0 ? (
-          <div className="text-center text-gray-400 text-xl">
-            Tu carrito está vacío.
-          </div>
-        ) : (
-          <ul className="space-y-4">
-            {productos.map((producto) => (
-              <li
-                key={producto.id}
-                className="flex items-center bg-gray-800 p-4 rounded-lg shadow"
-              >
-                <div className="w-24 h-24 relative flex-shrink-0">
-                  <Image
-                    src={producto.imagen}
-                    alt={producto.titulo}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-md"
-                  />
-                </div>
-                <div className="ml-4 flex-1">
-                  <h2 className="text-xl font-semibold">{producto.titulo}</h2>
-                  <p className="text-lg text-gray-300">
-                    ${producto.precio.toFixed(2)}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Botón de acción */}
-        <div className="mt-8">
-          <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
-            Finalizar compra
-          </button>
-        </div>
+  if (items.length === 0) {
+    return (
+      <div className="text-center text-gray-400 mt-10">
+        Tu carrito está vacío.
       </div>
-    </motion.div>
+    );
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto mt-10 px-4">
+      <h2 className="text-2xl font-bold mb-6 text-white tracking-wide">
+        Tu Carrito
+      </h2>
+      <div className="space-y-6">
+        {items.map((producto: productoType) => (
+          <div
+            key={producto.id}
+            className="flex items-center bg-gray-800 rounded-lg p-4 shadow-md transition-all duration-300 cursor-pointer hover:bg-gray-700 hover:shadow-xl hover:scale-102"
+          >
+            <div className="relative w-20 h-20 flex-shrink-0">
+              <Image
+                src={producto.imagen}
+                alt={producto.titulo}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
+            <div className="ml-4 flex-1">
+              <h3 className="text-lg font-semibold text-white">
+                {producto.titulo}
+              </h3>
+              <p className="text-gray-300 text-sm">${producto.precio.toFixed(2)}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-8 flex justify-end gap-4">
+        <button
+          onClick={handleClearCart} // Usamos la función con depuración
+          className="bg-red-600 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:-translate-y-1"
+        >
+          Limpiar Carrito
+        </button>
+        <button className="bg-blue-500 cursor-pointer text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:-translate-y-1">
+          Proceder al Pago
+        </button>
+      </div>
+    </div>
   );
 };
 

@@ -1,30 +1,41 @@
 "use client";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { productoType } from "@/app/types/productoType";
 import { useAppDispatch } from "@/lib/hooks";
 import { addProductToCart } from "@/lib/features/cart/cartSlice";
+import { useState } from "react";
 
 export default function ProductDetails({ product }: { product: productoType }) {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [showToast, setShowToast] = useState(false); // Estado para controlar el aviso
+
   const videoId = product.videoYT
     ? new URL(product.videoYT).searchParams.get("v") ||
       product.videoYT.split("/").pop()
     : null;
 
-  const dispatch = useAppDispatch();
   const handleBackClick = () => {
     router.push("/categoria/teclados");
   };
 
   const handleAddToCart = () => {
-    dispatch(addProductToCart(product));
+    dispatch(addProductToCart(product)); // Despachamos la acción
+    setShowToast(true); // Mostramos el aviso
+    setTimeout(() => setShowToast(false), 3000); // Ocultamos el aviso después de 3 segundos
   };
 
   return (
     <div className="min-h-screen bg-white py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto relative">
+        {/* Aviso (Toast) */}
+        {showToast && (
+          <div className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg transition-opacity duration-300 opacity-100 z-50">
+            ¡Producto agregado al carrito!
+          </div>
+        )}
+
         <div className="mb-8">
           <button
             onClick={handleBackClick}
