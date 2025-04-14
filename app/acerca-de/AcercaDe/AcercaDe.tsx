@@ -1,6 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Importar dinámicamente el componente del mapa con SSR deshabilitado
+const MapComponent = dynamic(() => import("@/app/components/Mapa"), { ssr: false });
 
 const AcercaDe = () => {
   return (
@@ -107,11 +111,13 @@ const AcercaDe = () => {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           Ubicación Física
         </h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 mb-4">
           Nuestras oficinas principales están ubicadas en Guadalajara, donde
           atendemos a nuestros clientes y gestionamos envíos a toda la
           República.
         </p>
+        {/* Mapa con Leaflet */}
+        <MapComponent />
       </motion.div>
     </section>
   );
