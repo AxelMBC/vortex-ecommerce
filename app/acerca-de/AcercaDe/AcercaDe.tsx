@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // Importar dinámicamente el componente del mapa con SSR deshabilitado
-const MapComponent = dynamic(() => import("@/app/components/Mapa"), { ssr: false });
+const Mapa = dynamic(() => import("@/app/components/Mapa"), { ssr: false });
 
 const AcercaDe = () => {
   return (
@@ -117,7 +117,7 @@ const AcercaDe = () => {
           República.
         </p>
         {/* Mapa con Leaflet */}
-        <MapComponent />
+        <Mapa />
       </motion.div>
     </section>
   );
