@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 // No importamos Leaflet directamente aquí para evitar SSR
 const Mapa = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
+  const map = useRef<L.Map | null>(null);
 
   // Coordenadas de Guadalajara
   const center: [number, number] = [20.675, -103.347];
@@ -18,7 +18,7 @@ const Mapa = () => {
       await import("leaflet/dist/leaflet.css"); // Import CSS dynamically
 
       // Corrige los íconos de Leaflet
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      delete (L.Icon.Default.prototype as { _getIconUrl?: () => void })._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl:
           "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
