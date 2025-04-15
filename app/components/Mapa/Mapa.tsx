@@ -1,8 +1,8 @@
 "use client"; // Asegura que este componente solo se ejecute en el cliente
 
 import { useEffect, useRef } from "react";
+import L from "leaflet"; // Importamos Leaflet directamente
 
-// No importamos Leaflet directamente aquí para evitar SSR
 const Mapa = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
@@ -12,47 +12,46 @@ const Mapa = () => {
   const zoom = 15;
 
   useEffect(() => {
-    // Importamos Leaflet dinámicamente dentro de useEffect
-    const initializeMap = async () => {
-      const L = (await import("leaflet")).default;
-      await import("leaflet/dist/leaflet.css"); // Import CSS dynamically
+    // Cargar el CSS de Leaflet dinámicamente en el DOM
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    document.head.appendChild(link);
 
-      // Corrige los íconos de Leaflet
-      delete (L.Icon.Default.prototype as { _getIconUrl?: () => void })._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl:
-          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-        iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-        shadowUrl:
-          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-      });
+    // Corrige los íconos de Leaflet
+    delete (L.Icon.Default.prototype as { _getIconUrl?: () => void })._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl:
+        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+      iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl:
+        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    });
 
-      if (map.current || !mapContainer.current) return; // Evitar inicialización múltiple
+    if (map.current || !mapContainer.current) return; // Evitar inicialización múltiple
 
-      // Inicializar el mapa
-      map.current = L.map(mapContainer.current).setView(center, zoom);
+    // Inicializar el mapa
+    map.current = L.map(mapContainer.current).setView(center, zoom);
 
-      // Añadir capa de OpenStreetMap
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map.current);
+    // Añadir capa de OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map.current);
 
-      // Añadir marcador
-      L.marker(center)
-        .addTo(map.current)
-        .bindPopup("Oficinas Vortex - Guadalajara")
-        .openPopup();
-    };
+    // Añadir marcador
+    L.marker(center)
+      .addTo(map.current)
+      .bindPopup("Oficinas Vortex - Guadalajara")
+      .openPopup();
 
-    initializeMap();
-
-    // Limpiar el mapa al desmontar
+    // Limpiar el mapa y el CSS al desmontar
     return () => {
       if (map.current) {
         map.current.remove();
         map.current = null;
       }
+      document.head.removeChild(link); // Eliminar el <link> al desmontar
     };
   }, []);
 
