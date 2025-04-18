@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { productoType } from "@/app/types/productoType";
-import { useAppDispatch } from "@/lib/hooks";
-import { addProductToCart } from "@/lib/features/cart/cartSlice";
+import { useAppDispatch } from "@/app/state/hooks";
+import { addProductToCart } from "@/app/state/cart/cartSlice";
 import { useState } from "react";
 
 export default function ProductDetails({ product }: { product: productoType }) {
