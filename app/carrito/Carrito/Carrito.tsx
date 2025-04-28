@@ -1,7 +1,7 @@
 "use client";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/state/store";
-import { productoType } from "@/app/types/productoType";
+import { productoType } from "@/types/productoType";
 import Image from "next/image";
 import { useAppDispatch } from "@/app/state/hooks";
 import { clearCart } from "@/app/state/cart/cartSlice";

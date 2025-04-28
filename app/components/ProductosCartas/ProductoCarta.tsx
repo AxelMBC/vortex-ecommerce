@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { productoType } from "../../types/productoType";
+import { productoType } from "@/types/productoType";
 import { useRouter } from "next/navigation";
 
 const ProductoCarta = ({

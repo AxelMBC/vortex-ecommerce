@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./cart/cartSlice";
-import { productoType } from "@/app/types/productoType";
+import { productoType } from "@/types/productoType";
 
 interface CartState {
   items: productoType[];

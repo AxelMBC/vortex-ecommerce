@@ -15,13 +15,13 @@ export default function Categorias() {
       description: "Explora teclados mecánicos y ergonómicos de alta calidad.",
     },
     {
-      name: "PC",
+      name: "PCs",
       image: pcImage,
       description:
         "Potencia tu experiencia con nuestras computadoras de vanguardia.",
     },
     {
-      name: "Audífonos",
+      name: "Audifonos",
       image: headphonesImage,
       description: "Sumérgete en el sonido con audífonos premium.",
     },

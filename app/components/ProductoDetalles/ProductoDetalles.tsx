@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { productoType } from "@/app/types/productoType";
+import { productoType } from "@/types/productoType";
 import { useAppDispatch } from "@/app/state/hooks";
 import { addProductToCart } from "@/app/state/cart/cartSlice";
 import { useState } from "react";
 
-export default function ProductDetails({ product }: { product: productoType }) {
+export default function ProductoDetalles({ product }: { product: productoType }) {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [showToast, setShowToast] = useState(false); // Estado para controlar el aviso
@@ -16,6 +16,7 @@ export default function ProductDetails({ product }: { product: productoType }) {
       product.videoYT.split("/").pop()
     : null;
 
+  // TODO: cambiar la ruta para que funcione de forma dinamica
   const handleBackClick = () => {
     router.push("/categoria/teclados");
   };

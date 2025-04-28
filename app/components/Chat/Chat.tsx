@@ -8,13 +8,13 @@ const Chat = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <nav className="fixed right-10 bottom-40">
+    <nav className="fixed right-10 bottom-40 z-100">
       {isVisible && (
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="h-150 w-100"
+          className="w-full max-w-lg h-[50vh] sm:h-[30vh] md:h-[40vh] lg:h-[50vh]"
         >
           <Session appId="tcBd5ghq" userId="sample_user_alice">
             <Chatbox conversationId="sample_conversation" className="h-full" />

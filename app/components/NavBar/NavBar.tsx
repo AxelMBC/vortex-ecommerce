@@ -12,6 +12,8 @@ const menuItems = [
   { name: "Categorias", href: "/categorias" },
   { name: "Mercado", href: "/mercado" },
   { name: "Acerca de", href: "/acerca-de" },
+  // TODO: Prefuntas Frecuentes en Footer
+  // { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -20,7 +22,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="relative bg-white shadow-md">
+    <nav className="relative bg-white shadow-md top-0 w-full sticky z-100">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <Link
           href="/"
