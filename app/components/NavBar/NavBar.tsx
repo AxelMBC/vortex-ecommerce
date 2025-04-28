@@ -12,7 +12,8 @@ const menuItems = [
   { name: "Categorias", href: "/categorias" },
   { name: "Mercado", href: "/mercado" },
   { name: "Acerca de", href: "/acerca-de" },
-  { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
+  // TODO: Prefuntas Frecuentes en Footer
+  // { name: "Preguntas Frecuentes", href: "/preguntas-frecuentes" },
   { name: "Contacto", href: "/contacto" },
 ];
 

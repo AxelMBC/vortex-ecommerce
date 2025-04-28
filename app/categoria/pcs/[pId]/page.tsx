@@ -1,6 +1,6 @@
 import { pcsLista } from "../pcsLista";
 import { notFound } from "next/navigation";
-import ProductDetails from "./ProductoDetalles";
+import ProductoDetalles from "@/app/components/ProductoDetalles";
 
 export default async function Page({
   params,
@@ -14,5 +14,5 @@ export default async function Page({
     notFound(); 
   }
 
-  return <ProductDetails product={product} />;
+  return <ProductoDetalles product={product} />;
 }

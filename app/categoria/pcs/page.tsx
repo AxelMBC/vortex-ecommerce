@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { pcsLista } from "./pcsLista";
 import ProductoCarta from "../../components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
-import { productosPCs } from "@/app/db/carousel";
+import { productosPCs } from "@/db/carousel";
 import CarritoDebug from "@/app/components/CarritoDebug/CarritoDebug";
 
 export default function PCsPagina() {

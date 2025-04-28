@@ -1,6 +1,6 @@
 import { tecladosLista } from "../tecladosLista";
 import { notFound } from "next/navigation";
-import ProductDetails from "./ProductoDetalles";
+import ProductDetails from "@/app/components/ProductoDetalles";
 
 export default async function Page({
   params,

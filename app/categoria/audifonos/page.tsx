@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { audifonosLista } from "./audifonosLista";
 import ProductoCarta from "../../components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
-import { productosAudifonos } from "@/app/db/carousel";
+import { productosAudifonos } from "@/db/carousel";
 import CarritoDebug from "@/app/components/CarritoDebug/CarritoDebug";
 
 export default function AudifonosPagina() {
