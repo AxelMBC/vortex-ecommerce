@@ -1,6 +1,6 @@
 "use client";
 import { useSelector } from "react-redux";
-import { RootState } from "@/lib/store"; // ajusta según tu estructura
+import { RootState } from "@/app/state/store"; // ajusta según tu estructura
 
 export default function CarritoDebug() {
   const carrito = useSelector((state: RootState) => state.cart); // accede al estado del slice
