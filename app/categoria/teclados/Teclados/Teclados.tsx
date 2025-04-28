@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { tecladosLista } from "../tecladosLista";
 import ProductoCarta from "@/app/components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
-import { productosTeclados } from "@/app/db/carousel";
+import { productosTeclados } from "@/db/carousel";
 
 const Teclados = () => {
   return (
