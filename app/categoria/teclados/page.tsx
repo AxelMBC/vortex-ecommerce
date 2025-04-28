@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { tecladosLista } from "./tecladosLista";
 import ProductoCarta from "../../components/ProductosCartas";
 import Carousel from "@/app/components/Carousel";
-import { productosTeclados } from "@/app/db/carousel";
+import { productosTeclados } from "@/db/carousel";
 import CarritoDebug from "@/app/components/CarritoDebug/CarritoDebug";
 
 export default function TecladosPagina() {

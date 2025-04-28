@@ -1,16 +1,21 @@
 "use client";
 import { useSelector } from "react-redux";
-import { RootState } from "@/lib/store"; // Ajusta la ruta según tu proyecto
-import { productoType } from "@/app/types/productoType"; // Ajusta la ruta según tu proyecto
+import { RootState } from "@/app/state/store";
+import { productoType } from "@/app/types/productoType";
 import Image from "next/image";
-import { useAppDispatch } from "@/lib/hooks"; // Hook para despachar
-import { clearCart } from "@/lib/features/cart/cartSlice"; // Acción para limpiar
+import { useAppDispatch } from "@/app/state/hooks";
+import { clearCart } from "@/app/state/cart/cartSlice";
+import { useEffect } from "react";
 
 const Carrito = () => {
   const items = useSelector((state: RootState) => state.cart.items);
-  const dispatch = useAppDispatch(); // Hook para despachar acciones
+  const dispatch = useAppDispatch();
 
-  // Añadimos un console.log para verificar el estado y el despacho
+  useEffect(() => {
+    // Cualquier lógica que interactúe con localStorage o sessionStorage aquí
+    console.log("Componente Carrito montado en el cliente");
+  }, []);
+
   const handleClearCart = () => {
     console.log("Antes de limpiar - Items en el carrito:", items);
     dispatch(clearCart());
@@ -49,7 +54,9 @@ const Carrito = () => {
               <h3 className="text-lg font-semibold text-white">
                 {producto.titulo}
               </h3>
-              <p className="text-gray-300 text-sm">${producto.precio.toFixed(2)}</p>
+              <p className="text-gray-300 text-sm">
+                ${producto.precio.toFixed(2)}
+              </p>
             </div>
           </div>
         ))}

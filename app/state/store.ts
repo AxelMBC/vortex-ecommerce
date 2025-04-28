@@ -1,15 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./features/cart/cartSlice";
+import cartReducer from "./cart/cartSlice";
 import { productoType } from "@/app/types/productoType";
 
-// Definimos la interfaz del estado del carrito
 interface CartState {
   items: productoType[];
 }
 
-// Función para cargar el estado desde localStorage
+// Cargar el estado desde localStorage
 const loadState = (): CartState | undefined => {
-  // Verificamos si estamos en el cliente (navegador)
   if (typeof window === "undefined") {
     return undefined; // Si estamos en el servidor, no accedemos a localStorage
   }
